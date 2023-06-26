@@ -1,5 +1,23 @@
 /* Lesson 2 */
 
+var name = "Logan Dawes";
+document.querySelector("#name").textContent = name;
+
+var currentYear = new Date().getFullYear();
+document.querySelector("#year").textContent = currentYear;
+        
+var favoriteFoods = ["Steak", "Sushi", "Fish", "Chicken", "Crab", "Lobster"];
+document.querySelector("#food").textContent = favoriteFoods.join(", ");
+
+
+
+
+
+
+
+
+
+
 /* VARIABLES */
 
 // Step 1: declare and instantiate a variable to hold your name

@@ -1,49 +1,90 @@
 /* Lesson 3 */
 
-/* FUNCTIONS */
+// Function declaration - add
+function add(number1, number2) {
+    return number1 + number2;
+}
 
-// Step 1: Using function declaration, define a function named add that takes two arguments, number1 and number2
+// Function declaration - subtract
+function subtract(number1, number2) {
+    return number1 - number2;
+}
 
-// Step 2: In the function, return the sum of the parameters number1 and number2
+// Function declaration - multiply
+const multiply = (number1, number2) => number1 * number2;
 
-// Step 3: Step 3: Using function declaration, define another function named addNumbers that gets the values of two HTML form controls with IDs of addend1 and addend2. Pass them to the add function
+// Function declaration - divide
+const divide = function(number1, number2) {
+    return number1 / number2;
+};
 
-// Step 4: Assign the return value to an HTML form element with an ID of sum
+// Function declaration - addNumbers
+function addNumbers() {
+    const addend1 = parseInt(document.getElementById("addend1").value);
+    const addend2 = parseInt(document.getElementById("addend2").value);
+    const sumElement = document.getElementById("sum");
+    sumElement.value = add(addend1, addend2);
+}
 
-// Step 5: Add a "click" event listener to the HTML button with an ID of addNumbers that calls the addNumbers function
+// Function declaration - subtractNumbers
+function subtractNumbers() {
+    const minuend = parseInt(document.getElementById("minuend").value);
+    const subtrahend = parseInt(document.getElementById("subtrahend").value);
+    const differenceElement = document.getElementById("difference");
+    differenceElement.value = subtract(minuend, subtrahend);
+}
 
-// Step 6: Using function expressions, repeat Steps 1-5 with new functions named subtract and subtractNumbers and HTML form controls with IDs of minuend, subtrahend, difference and subtractNumbers
+// Function declaration - multiplyNumbers
+function multiplyNumbers() {
+    const factor1 = parseInt(document.getElementById("factor1").value);
+    const factor2 = parseInt(document.getElementById("factor2").value);
+    const productElement = document.getElementById("product");
+    productElement.value = multiply(factor1, factor2);
+}
 
-// Step 7: Using arrow functions, repeat Steps 1-5 with new functions named multiply and mulitplyNumbers and HTML form controls with IDs of factor1, factor2, product and multiplyNumbers
+// Function declaration - divideNumbers
+function divideNumbers() {
+    const dividend = parseInt(document.getElementById("dividend").value);
+    const divisor = parseInt(document.getElementById("divisor").value);
+    const quotientElement = document.getElementById("quotient");
+    quotientElement.value = divide(dividend, divisor);
+}
 
-// Step 8: Using any of the three function declaration types, repeat Steps 1-5 with new functions named divide and divideNumbers and HTML form controls with IDs of dividend, divisor, quotient and divideNumbers
+// Add event listeners
+document.getElementById("addNumbers").addEventListener("click", addNumbers);
+document.getElementById("subtractNumbers").addEventListener("click", subtractNumbers);
+document.getElementById("multiplyNumbers").addEventListener("click", multiplyNumbers);
+document.getElementById("divideNumbers").addEventListener("click", divideNumbers);
 
-// Step 9: Test all of the mathematical functionality of the task3.html page.
+// Get current year
+const currentDate = new Date();
+const currentYear = currentDate.getFullYear();
 
+// Assign current year to HTML element
+document.getElementById("year").innerText = currentYear;
 
-/* BUILT-IN METHODS */
+// Array variable
+const numbersArray = Array.from({ length: 25 }, (_, i) => i + 1);
 
-// Step 1: Declare and instantiate a variable of type Date to hold the current date
+// Assign array to HTML element
+document.getElementById("array").innerText = numbersArray.join(", ");
 
-// Step 2: Declare a variable to hold the current year
+// Filter odd numbers
+const oddNumbers = numbersArray.filter((number) => number % 2 !== 0);
+document.getElementById("odds").innerText = oddNumbers.join(", ");
 
-// Step 3: Using the variable declared in Step 1, call the built-in getFullYear() method/function and assign it to the variable declared in Step 2
+// Filter even numbers
+const evenNumbers = numbersArray.filter((number) => number % 2 === 0);
+document.getElementById("evens").innerText = evenNumbers.join(", ");
 
-// Step 4: Assign the current year variable to an HTML form element with an ID of year
+// Reduce array to sum of elements
+const sumOfArray = numbersArray.reduce((sum, number) => sum + number, 0);
+document.getElementById("sumOfArray").innerText = sumOfArray;
 
+// Map array to multiply each element by 2
+const multipliedArray = numbersArray.map((number) => number * 2);
+document.getElementById("multiplied").innerText = multipliedArray.join(", ");
 
-/* ARRAY METHODS */
-
-// Step 1: Declare and instantiate an array variable to hold the numbers 1 through 25
-
-// Step 2: Assign the value of the array variable to the HTML element with an ID of "array"
-
-// Step 3: Use the filter array method to find all of the odd numbers of the array variable and assign the reult to the HTML element with an ID of "odds" ( hint: % (modulus operartor) )
-
-// Step 4: Use the filter array method to find all of the even numbers of the array variable and assign the result to the HTML element with an ID of "evens"
-
-// Step 5: Use the reduce array method to sum the array variable elements and assign the result to the HTML element with an ID of "sumOfArray"
-
-// Step 6: Use the map array method to multiple each element in the array variable by 2 and assign the result to the HTML element with an ID of "multiplied"
-
-// Step 7: Use the map and reduce array methods to sum the array elements after multiplying each element by two.  Assign the result to the HTML element with an ID of "sumOfMultiplied"
+// Sum of array elements after multiplying each element by 2
+const sumOfMultiplied = multipliedArray.reduce((sum, number) => sum + number, 0);
+document.getElementById("sumOfMultiplied").innerText = sumOfMultiplied;
